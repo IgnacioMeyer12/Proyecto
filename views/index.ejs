@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="resources/img/LOGO.png">
+    <link rel="stylesheet" href="resources/css/index.css">
+    <title>AltaGama</title>
+    <body>
+      <header>
+          <section class="textos-header">
+              <h1>Bienvenido!</h1>
+              <h2> Compra Tu Auto Soñado </h2>
+          </section>
+          <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+                  style="height: 100%; width: 100%;">
+                  <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                      style="stroke: none; fill: #fff;"></path>
+              </svg></div>
+      </header>
+      <main>
+        <div class="contenedor">
+          <% if (login) { %>
+            <h1>Usuario conectado: <strong><%= name %></strong></h1>
+            <a href="logout" class="a-logout">Logout</a>
+            <a href="tienda" class="a-tienda">Ver Autos</a>
+            <a href="carrito" class="a-carrito">Mi carrito</a>
+          <% } else { %>
+            <h1><strong><%= name %></strong></h1>
+            <a href="login" class="a-login">Ir a Login</a>
+            <a href="tienda" class="a-tienda">Ver Autos</a>
+            <a href="carrito" class="a-carrito">Mi carrito</a>
+          <% } %>
+        </div>        
+          <section class="contenedor sobre-nosotros">
+              <h2 class="titulo">NOSOTROS</h2>
+              <div class="contenedor-sobre-nosotros">
+                  <img src= "resources/img/NOSOTROS.png" alt="" class="imagen-about-us">
+                  <div class="contenido-textos">
+                    <h3><span>1</span>Autos de Alta Gama:</h3>
+                    <p>¿Estás buscando un vehículo excepcional que combine lujo, potencia y tecnología de vanguardia? Te invitamos a explorar nuestra exclusiva selección de autos de alta gama. Cada uno de nuestros vehículos ofrece una experiencia de conducción incomparable y un diseño impresionante.</p>
+                    
+                    <h3><span>2</span>Descubre la Emoción Deportiva:</h3>
+                    <p>Si buscas emociones al volante y la sensación de velocidad, nuestros autos deportivos están diseñados para ti. Desde elegantes deportivos hasta máquinas de alto rendimiento, nuestra gama de autos deportivos te hará sentir la adrenalina en cada curva. ¿Listo para experimentar la verdadera emoción de la carretera?</p>
+                    
+                  </div>
+              </div>
+          </section>
+          <section class="portafolio">
+              <div class="contenedor">
+                  <h2 class="titulo">Galeria</h2>
+                  <div class="galeria-port">
+                      <div class="imagen-port">
+                          <img src="resources/img/GALERIA1.jpg" alt="">
+                          <div class="hover-galeria">
+                              <img src="resources/img/icono1.png" alt="">
+                              <p>Nuestro trabajo</p>
+                          </div>
+                      </div>
+                      <div class="imagen-port">
+                          <img src="resources/img/GALERIA2.jpg" alt="">
+                          <div class="hover-galeria">
+                              <img src="resources/img/icono1.png" alt="">
+                              <p>Nuestro trabajo</p>
+                          </div>
+                      </div>
+                      <div class="imagen-port">
+                          <img src="resources/img/GALERIA3.jpg" alt="">
+                          <div class="hover-galeria">
+                              <img src="resources/img/icono1.png" alt="">
+                              <p>Nuestro trabajo</p>
+                          </div>
+                      </div>
+                      <div class="imagen-port">
+                          <img src="resources/img/GALERIA4.jpg" alt="">
+                          <div class="hover-galeria">
+                              <img src="resources/img/icono1.png" alt="">
+                              <p>Nuestro trabajo</p>
+                          </div>
+                      </div>
+                      <div class="imagen-port">
+                          <img src="resources/img/GALERIA5.jpg" alt="">
+                          <div class="hover-galeria">
+                              <img src="resources/img/icono1.png" alt="">
+                              <p>Nuestro trabajo</p>
+                          </div>
+                      </div>
+                      <div class="imagen-port">
+                          <img src="resources/img/GALERIA6.jpg" alt="">
+                          <div class="hover-galeria">
+                              <img src="resources/img/icono1.png" alt="">
+                              <p>Nuestro trabajo</p>
+                          </div>
+                      </div>
+                      <div class="imagen-port">
+                          <img src="resources/img/GALERIA7.jpg" alt="">
+                          <div class="hover-galeria">
+                              <img src="resources/img/icono1.png" alt="">
+                              <p>Nuestro trabajo</p>
+                          </div>
+                      </div>
+                      <div class="imagen-port">
+                          <img src="resources/img/GALERIA8.jpg" alt="">
+                          <div class="hover-galeria">
+                              <img src="resources/img/icono1.png" alt="">
+                              <p>Nuestro trabajo</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          <section class="clientes contenedor">
+              <h2 class="titulo">Que dicen nuestros clientes</h2>
+              <div class="cards">
+                  <div class="card">
+                      <img src="resources/img/CLIENTE1.jpg" alt="">
+                      <div class="contenido-texto-card">
+                          <h4>Andrea Perez</h4>
+                          <p>Mi experiencia en esta concesionaria de autos deportivos ha sido excepcional. La variedad de autos de alto rendimiento y el servicio amable hicieron que mi elección fuera emocionante y sin complicaciones. </p>
+                      </div>
+                  </div>
+                  <div class="card">
+                      <img src="resources/img/CLIENTE2.jpeg" alt="">
+                      <div class="contenido-texto-card">
+                          <h4>Martin Meyer</h4>
+                          <p>Mi experiencia en esta concesionaria de autos deportivos fue emocionante. El equipo de ventas fue atento y paciente, proporcionando información detallada sin presionar. Encontré el auto de mis sueños, y cada viaje desde entonces ha sido emocionante.</p>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          <section class="about-services">
+              <div class="contenedor">
+                  <h2 class="titulo">Nuestros servicios</h2>
+                  <div class="servicio-cont">
+                      <div class="servicio-ind">
+                          <img src="resources/img/SERVICIO2.gif" alt="">
+                          <h3>Amplia Variedad de Vehículos:</h3>
+                          <p>Desde emocionantes modelos nuevos hasta opciones usadas de alta calidad. Nuestros vendedores expertos te ayudarán a encontrar el vehículo perfecto para ti.</p>
+                      </div>
+                      <div class="servicio-ind">
+                          <img src="resources/img/SERVICIO1.webp" alt="">
+                          <h3>Mantenimiento Profesional:</h3>
+                          <p> Nuestro equipo altamente capacitado se encarga de mantener tu vehículo en óptimas condiciones, desde cambios de aceite hasta reparaciones mecánicas.</p>
+                      </div>
+                      <div class="servicio-ind">
+                          <img src="resources/img/SERVICIO3.gif" alt="">
+                          <h3>Financiamiento Personalizado:</h3>
+                          <p>Trabajamos contigo para ofrecer opciones de financiamiento atractivas en colaboración con instituciones financieras de prestigio.</p>
+                      </div>
+                  </div>
+              </div>
+          </section>
+      </main>
+      <footer>
+          <div class="contenedor-footer">
+              <div class="content-foo">
+                  <h4>📱Phone</h4>
+                  <p>3413838911</p>
+              </div>
+              <div class="content-foo">
+                  <h4>✉️Email</h4>
+                  <p>IgnacioMeyer12@hotmail.com</p>
+              </div>
+              <div class="content-foo">
+                  <h4>📌Location</h4>
+                  <p>Rosario,Santa Fe</p>
+              </div>
+          </div>
+          <h2 class="titulo-final">&copy; Ignacio Meyer </h2>
+      </footer>
+  </body>
+  
+  </html>

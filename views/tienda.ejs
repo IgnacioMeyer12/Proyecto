@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Establece el conjunto de caracteres, compatibilidad y configuración de la vista -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Establece el favicon para la página -->
+    <link rel="icon" href="resources/img/LOGO.png">
+    <!-- Enlaza la hoja de estilo externa -->
+    <link rel="stylesheet" href="resources/css/tienda.css">
+    <!-- Establece el título de la página -->
+    <title>Tienda</title>
+</head>
+
+<body>
+    <!-- Inicio del contenido principal -->
+    <div class="Compra-form">
+        <!-- Encabezado para la sección del formulario -->
+        <h1>Bienvenido a la tienda más grande de Autos en Rosario!</h1>
+        <!-- Inicio del formulario con atributos action y method -->
+        <form action="/tienda" method="POST">
+            <!-- Grupo de formulario para seleccionar la marca del automóvil -->
+            <div class="form-group">
+                <label for="marca">Marca:</label>
+                <!-- Menú desplegable para seleccionar la marca del automóvil, activa updateCarInfo() al cambio -->
+                <select name="marca" id="marca" required tabindex="3" autofocus onchange="updateCarInfo()">
+                    <option value="Nissan">Nissan</option>
+                    <option value="Toyota" selected>Toyota</option>
+                    <option value="Mitsubishi">Mitsubishi</option>
+                </select>
+                <!-- Etiqueta de imagen para mostrar la imagen del automóvil seleccionado -->
+                <img id="imagenAuto" src="" alt="Imagen del auto" style="max-width: 100%; margin-top: 10px;">
+            </div>
+            <!-- Grupo de formulario para mostrar el modelo del automóvil -->
+            <div class="form-group">
+                <label for="modelo">Modelo:</label>
+                <!-- Campo de entrada para mostrar el modelo del automóvil (solo lectura) -->
+                <input type="text" name="modelo" id="modelo" readonly>
+            </div>
+            <!-- Grupo de formulario para mostrar el precio del automóvil -->
+            <div class="form-group">
+                <label for="precio">Precio $US:</label>
+                <!-- Campo de entrada para mostrar el precio del automóvil (solo lectura) -->
+                <input type="number" name="precio" id="precio" readonly>
+            </div>
+            <!-- Grupo de formulario para mostrar la descripción del automóvil -->
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <!-- Área de texto para mostrar la descripción del automóvil (solo lectura) -->
+                <textarea name="descripcion" id="descripcion" readonly></textarea>
+            </div>
+            <!-- Sección de botones "Agregar al Carrito" (visible solo si el usuario ha iniciado sesión) -->
+            <% if (login) { %>
+                <div class="form-buttons">
+                    <!-- Enlace para volver a la página de inicio -->
+                    <a href="/" class="btn-cancel">Volver al Inicio</a>
+                    <!-- Botón de envío para agregar el automóvil seleccionado al carrito -->
+                    <input type="submit" class="btn-save" value="Agregar al Carrito">
+                </div>
+            <% } else { %>
+                <!-- Mensaje para usuarios que no han iniciado sesión -->
+                <p>Debes iniciar sesión para agregar autos al carrito.</p>
+            <% } %>
+        </form>
+    </div>
+    <!-- Incluye la biblioteca SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Inicio de la sección JavaScript -->
+    <script>
+        // Objeto que contiene información sobre diferentes marcas de automóviles
+        var carInfo = {
+            Nissan: {
+                modelo: "Nissan Skyline GT-R",
+                precio: 100000,
+                descripcion: "El Nissan Skyline GT-R es un automóvil deportivo de alto rendimiento...",
+                imagen: "resources/img/GTR.jpg"
+            },
+            Toyota: {
+                modelo: "Toyota Supra",
+                precio: 90000,
+                descripcion: "El Toyota Supra es un icónico automóvil deportivo con un motor turboalimentado...",
+                imagen: "resources/img/SUPRA.jpg"
+            },
+            Mitsubishi: {
+                modelo: "Mitsubishi Lancer Evolution",
+                precio: 80000,
+                descripcion: "El Mitsubishi Lancer Evolution, o Evo, es un sedán compacto que ha ganado fama...",
+                imagen: "resources/img/EVO.jpg"
+            }
+        };
+
+        // Función para actualizar la información del automóvil según la marca seleccionada
+        window.onload = function () {
+            updateCarInfo();
+        };
+
+        function updateCarInfo() {
+            // Obtiene la marca de automóvil seleccionada desde el menú desplegable
+            var selectedBrand = document.getElementById("marca").value;
+            // Obtiene referencias a varios campos del formulario
+            var modeloField = document.getElementById("modelo");
+            var precioField = document.getElementById("precio");
+            var descripcionField = document.getElementById("descripcion");
+            var imagenAuto = document.getElementById("imagenAuto");
+
+            // Actualiza los campos del formulario según la marca de automóvil seleccionada
+            switch (selectedBrand) {
+                case "Nissan":
+                    modeloField.value = carInfo.Nissan.modelo;
+                    precioField.value = carInfo.Nissan.precio;
+                    descripcionField.value = carInfo.Nissan.descripcion;
+                    imagenAuto.src = carInfo.Nissan.imagen;
+                    break;
+                case "Toyota":
+                    modeloField.value = carInfo.Toyota.modelo;
+                    precioField.value = carInfo.Toyota.precio;
+                    descripcionField.value = carInfo.Toyota.descripcion;
+                    imagenAuto.src = carInfo.Toyota.imagen;
+                    break;
+                case "Mitsubishi":
+                    modeloField.value = carInfo.Mitsubishi.modelo;
+                    precioField.value = carInfo.Mitsubishi.precio;
+                    descripcionField.value = carInfo.Mitsubishi.descripcion;
+                    imagenAuto.src = carInfo.Mitsubishi.imagen;
+                    break;
+            }
+        }
+    </script>
+    <!-- Script para mostrar una notificación SweetAlert2 si se proporciona -->
+    <% if (typeof alert !== "undefined") { %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirmButton: <%= showConfirmButton %>,
+                timer: <%= timer %>
+            }).then(() => {
+                // Redirige a la ruta especificada después de la notificación SweetAlert2
+                window.location = '/<%= ruta %>';
+            });
+        </script>
+    <% } %>
+</body>
+</html>

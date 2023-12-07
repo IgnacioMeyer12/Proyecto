@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Configuración de metadatos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Icono de la pestaña y enlace al archivo CSS -->
+    <link rel="icon" href="resources/img/LOGO.png">
+    <link rel="stylesheet" href="resources/css/carrito.css">
+    
+    <!-- Título de la página -->
+    <title>Carrito</title>
+</head>
+<body>
+    <!-- Encabezado principal -->
+    <h1>Carrito de Compras</h1>
+
+    <!-- Bloque de contenido según si el usuario ha iniciado sesión o no -->
+    <% if (login) { %>
+        <!-- Mensaje de bienvenida -->
+        <p>Bienvenido, <%= name %>!</p>
+
+        <!-- Verificación de autos en el carrito -->
+        <% if (autos.length > 0) { %>
+            <!-- Lista de autos en el carrito -->
+            <h2>Autos en el carrito:</h2>
+            <ul>
+                <% var total = 0; %>
+                <!-- Iteración sobre cada auto en el carrito -->
+                <% autos.forEach(auto => { %>
+                    <li>
+                        <!-- Detalles del auto -->
+                        <strong>Marca:</strong> <%= auto.marca %><br>
+                        <strong>Modelo:</strong> <%= auto.modelo %><br>
+                        <strong>Precio $US:</strong> <%= auto.precio %><br>
+                    </li>
+                    <!-- Actualización del total acumulado -->
+                    <% total += auto.precio; %>
+                <% }); %>
+            </ul>
+            <!-- Visualización del total del carrito -->
+            <p>Total: $US<%= total %></p>
+        <% } else { %>
+            <!-- Mensaje si no hay autos en el carrito -->
+            <p>No has comprado ningún auto aún.</p>
+        <% } %>
+        
+        <!-- Enlace para volver a la página de inicio -->
+        <a href="/">Volver a la página de inicio</a>
+    <% } else { %>
+        <!-- Enlace para iniciar sesión si el usuario no ha iniciado sesión -->
+        <a href="/login">Iniciar sesión</a>
+    <% } %>
+</body>
+</html>

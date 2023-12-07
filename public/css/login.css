@@ -1,0 +1,110 @@
+body{
+    font-family: 'Arial';  
+    background-color: #ffffff;
+    margin: auto;
+    text-align: center;
+  }
+  
+  /* Login form */
+  .login-form, .contenedor {
+    width: 300px;
+    margin: 0 auto;
+  }
+  .login-form h1 {
+    text-align: center;
+    color:rgb(0, 0, 0) ;
+    font-size: 28px;
+    padding: 70px 0 10px 0;
+  }
+  .login-form input[type="password"],
+  .login-form input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ced4da;
+    margin-bottom: 10px;
+    box-sizing:border-box;
+  }
+  
+  
+  /* Estilos boton LOGIN*/
+  .btn-login{
+    width: 100%;
+    padding: 15px;
+    background-color: #732d8f;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: large;
+    color: #ffffff;
+  }
+  .btn-login:hover,.btn-login:active{
+    color:#fff;
+    background-color:#4b1e5e;
+    border-color:#4b1e5e
+  }
+  .btn-login:focus{
+    box-shadow:0 0 0 3px rgb(0, 0, 0)
+  }
+  
+  /* Estilos boton REGISTER*/
+  .btn-register{
+    width: 100%;
+    padding: 15px;
+    background-color: #ff7b00;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: large;
+    color: #ffffff;
+    margin-top: 20px;
+    /* Para dar la apariencia de un boton */
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;  
+  }
+  .btn-register:hover,.btn-register:active{
+    color:#fff;
+    background-color: #b65800;
+    border-color:#b65800
+  ;
+  }
+  .btn-register:focus{
+    box-shadow:0 0 0 3px #b65800;
+  }
+  
+  /* Estilos de link para la PAGINA INICIAL*/
+  .a-login:link, .a-login:visited, .a-tienda:link, .a-tienda:visited, .a-carrito:link, .a-carrito:visited  {
+    background-color: white;
+    color: black;
+    border: 2px solid #732d8f;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .a-login:hover, .a-login:active , .a-tienda:hover, .a-tienda:active, .a-carrito:hover, .a-carrito:active {
+    background-color: #732d8f;
+    color: white;
+  }
+  
+  /* Estilos de link para realizar el LOGOUT*/
+  .a-logout:link, .a-logout:visited {
+    background-color: white;
+    color: black;
+    border: 2px solid #fd3535;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .a-logout:hover, .a-logout:active {
+    background-color: #fd3535;
+    color: white;
+  }
+  
+  

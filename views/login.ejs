@@ -1,0 +1,58 @@
+<!-- Declaración del tipo de documento y encabezado -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Configuración de metadatos -->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Icono de la pestaña -->
+	<link rel="icon" href="resources/img/LOGO.png">
+	
+	<!-- Título de la página -->
+	<title>Login</title>
+	
+	<!-- Enlace al archivo CSS -->
+	<link rel="stylesheet" href="resources/css/login.css">
+</head>
+<body>
+	<!-- Contenedor principal del formulario de inicio de sesión -->
+	<div class="login-form">
+		<!-- Título del formulario -->
+		<h1>Bienvenido!</h1>
+		
+		<!-- Formulario para iniciar sesión -->
+		<form action="auth" method="POST">
+			<!-- Campos de entrada para usuario y contraseña -->
+			<input type="text" name="user" placeholder="User" autofocus required>
+			<input type="password" name="pass" placeholder="Password" required>
+			
+			<!-- Botón de envío del formulario -->
+			<input type="submit" class="btn-login" value="Login">
+		</form>
+		
+		<!-- Enlace para registrarse -->
+		<a href="register" class="btn-register">Register</a>
+		
+		<!-- Inclusión de la biblioteca SweetAlert2 para notificaciones -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+		
+		<!-- Comprobar si existe una alerta definida en el servidor -->
+		<% if (typeof alert != "undefined")  { %>
+			<!-- Secuencia de comandos para mostrar una alerta usando SweetAlert2 -->
+			<script>
+			Swal.fire({
+				title: '<%= alertTitle %>',
+				text: '<%= alertMessage %>',
+				icon: '<%= alertIcon %>',
+				showConfirmButton: <%= showConfirmButton %>,
+				timer: <%= timer %>
+			}).then(() => {
+				window.location = '/<%= ruta %>'
+			})
+			</script>
+		<% } %>
+	</div>
+</body>
+</html>

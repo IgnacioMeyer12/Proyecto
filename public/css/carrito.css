@@ -1,0 +1,83 @@
+/* carrito.css */
+
+/* Estilos generales para el cuerpo del documento */
+/*
+  - Se establece la fuente principal del documento como 'Arial' o sans-serif si 'Arial' no está disponible.
+  - Se define un fondo gris claro (#f2f2f2) y un color de texto principal (#333).
+*/
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+/* Estilos para el encabezado principal */
+/*
+  - Se establece el color del texto de los encabezados principales como violeta (#663399).
+*/
+
+h1 {
+  color: #663399;
+}
+
+/* Estilos para los párrafos */
+/*
+  - El color del texto de los párrafos se define como naranja (#ffa500).
+*/
+
+p {
+  color: #ffa500;
+}
+
+/* Estilos para las listas no ordenadas */
+/*
+  - Se eliminan los estilos predeterminados de las listas (puntos de viñeta y relleno).
+*/
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Estilos para cada elemento de la lista */
+/*
+  - Se establece un margen inferior para separar los elementos de la lista.
+  - Se define un relleno interno, un borde delgado y bordes redondeados para los elementos de la lista.
+  - El fondo se configura como blanco (#fff) para resaltar los elementos.
+*/
+
+li {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+/* Estilos para los enlaces */
+/*
+  - Los enlaces se muestran en línea como bloques con un relleno y margen.
+  - Se establece un color de texto blanco (#fff) y un fondo violeta (#663399).
+  - Se añaden bordes redondeados y una transición suave del color de fondo al pasar el ratón.
+*/
+
+a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 0;
+  text-decoration: none;
+  color: #fff;
+  background-color: #663399;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilos para los enlaces al pasar el ratón sobre ellos */
+/*
+  - Se cambia el color de fondo a naranja (#ffa500) al pasar el ratón sobre los enlaces.
+*/
+
+a:hover {
+  background-color: #ffa500;
+}

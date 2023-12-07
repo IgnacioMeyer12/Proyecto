@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Configuración de metadatos -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Enlace al favicon y hoja de estilos -->
+    <link rel="icon" href="resources/img/LOGO.png">
+    <link rel="stylesheet" href="resources/css/register.css">
+    
+    <!-- Título de la página -->
+    <title>Registración</title>
+</head>
+<body>
+    <!-- Contenedor principal del formulario de registro -->
+    <div class="register-form">
+        <!-- Título del formulario -->
+		<h1>Registración</h1>
+		<!-- Formulario para enviar datos a "/register" con el método POST -->
+		<form action="/register" method="POST">
+            <!-- Etiqueta y campo de entrada para el nombre de usuario -->
+            <label for="user">User</label>
+            <input type="text" name="user" required tabindex="1" autofocus>
+            <!-- Etiqueta y campo de entrada para el nombre completo -->
+            <label for="user">Full Name</label>
+            <input type="text" name="name" required tabindex="2">
+            <!-- Etiqueta y campo de entrada para la contraseña -->
+            <label for="pass">Password</label>
+            <input type="password" name="pass" required tabindex="3">
+            <!-- Contenedor para alinear en línea -->
+            <div style="display: inline;">
+                <!-- Enlace para cancelar y redirigir a la página principal -->
+                <a href="/" class="btn-cancel">Cancel</a><input type="submit" class="btn-save" value="Save">
+            </div>
+		</form>
+	</div>
+
+    <!-- Inclusión del script de SweetAlert2 desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <!-- Script para mostrar alertas según el contexto -->
+    <% if (typeof alert != "undefined")  { %>
+    <script>
+    // Configuración y muestra de alertas con SweetAlert2
+    Swal.fire({
+        title:'<%= alertTitle %>',
+        text:'<%= alertMessage %>',
+        icon:'<%= alertIcon %>',
+        showConfirmButton: <%= showConfirmButton %>,
+        timer: <%= timer %>
+    }).then(()=>{
+        window.location='/<%= ruta %>'
+    })
+    </script>
+    <% } %>
+</body>
+</html>
